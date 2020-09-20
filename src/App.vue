@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/images/logo.png">
+    <img class="watermark" alt="Vue logo" src="./assets/images/watermark.svg">
+    <img class="logo" alt="Vue logo" src="./assets/images/logo.png">
     <router-view></router-view>
   </div>
 </template>
@@ -17,7 +18,21 @@ export default {
 </script>
 
 <style>
+:root{
+  --black: black;
+  --white: white;
+  --secondary: #1D1D1D;
+}
 #app{
-  color: white;
+  color: var(--white);
+}
+.watermark{
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+.logo{
+  margin: 10px 0;
 }
 </style>

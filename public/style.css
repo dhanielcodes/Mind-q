@@ -3,7 +3,10 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'poppins';
+    font-weight: 400;
 }
 body{
     background-color: black;
+    width: 80%;
+    margin: 0 auto;
 }
