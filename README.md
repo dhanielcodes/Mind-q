@@ -1,3 +1,3 @@
 # Mind-Q
 
-<img src="https://github.com/dan-adekoya/Mind-q/assets/images/MIND_Q_DISPLAY.png">
+<img src="https://github.com/dan-adekoya/Mind-q/src/assets/images/display.png">
