@@ -8,7 +8,7 @@
               <div class="progress">
                 <div class="counter"><p>Questions {{b}}/{{questions.length}}</p></div>
                 <div class="bar">
-                  <div class="metre"></div>
+                  <div class="metre" :style="{width: bar + '%'}"></div>
                 </div>
               </div>
               <div class="question">
@@ -22,7 +22,7 @@
             </div>
             <div class="side2">
               <ul>
-                <li  v-for="(items, index) in item.suggestions" :key="index" :class="select ? check(items) : ''" v-on:click='selectResponse(items)'>{{items.answer}}</li>
+                <li  v-for="(items, index) in item.suggestions" :key="index" :class="select ? check(items) : ''" @click='selectResponse(items)' v-on:click="next" >{{items.answer}}</li>
               </ul>
             </div>
           </div>        
@@ -48,30 +48,93 @@ export default {
     return {
       questions: [
         {
-          question: 'HOW MANY GRAMMYS DOES DAVIDO HAVE',
+          question: 'What type of a language is HTML?',
           suggestions: [
-            {answer: '0'},
-            {answer: '2'},
-            {answer: '10'},
-            {answer: '5', correct: true},
+            {answer: 'Scripting Language'},
+            {answer: 'Markup Language', correct: true},
+            {answer: 'Programming Language'},
+            {answer: 'Network Protocol'},
           ]
         },
         {
-          question: 'HOW MANY GRAMMYS DOES WIZKID HAVE',
+          question: 'What should be the first tag in any HTML Document? ',
           suggestions: [
-            {answer: '0'},
-            {answer: '2'},
-            {answer: '10'},
-            {answer: '5', correct: true},
+            {answer: '<head>'},
+            {answer: '<html>'},
+            {answer: '<title>'},
+            {answer: '<!doctype html>', correct: true},
           ]
         },
         {
-          question: 'HOW MANY GRAMMYS DOES BURNA BOY HAVE',
+          question: 'What tag is used to display a picture in a HTML page?',
           suggestions: [
-            {answer: '0'},
+            {answer: 'Image'},
+            {answer: 'Src'},
+            {answer: 'Img',  correct: true},
+            {answer: 'Picture'},
+          ]
+        },
+        {
+          question: 'HTML are web pages read and rendered by',
+          suggestions: [
+            {answer: 'Server'},
+            {answer: 'Web browser', correct: true},
+            {answer: 'Compiler'},
+            {answer: 'Intrepreter'},
+          ]
+        },
+        {
+          question: 'What is the correct HTML tag for inserting a line break?',
+          suggestions: [
+            {answer: '<break />'},
+            {answer: '<nbsp>'},
+            {answer: '<lb>'},
+            {answer: '<br />', correct: true},
+          ]
+        },
+        {
+          question: 'What is the correct HTML for making a hyperlink?',
+          suggestions: [
+            {answer: '<http://mcqsets.com</a>'},
+            {answer: 'url="http://mcqsets.com">MCQ Sets Quiz'},
+            {answer: '<a name="http://mcqsets.com">MCQ Sets Quiz</a>'},
+            {answer: '<a href="http://mcqsets.com">MCQ Sets Quiz</a>', correct: true},
+          ]
+        },
+        {
+          question: 'HTML documents are saved in',
+          suggestions: [
+            {answer: 'None'},
+            {answer: 'ASCII text' , correct: true},
+            {answer: 'Special binary format'},
+            {answer: 'Machine language codes'},
+          ]
+        },
+        {
+          question: 'Which tag creates a check box for a form in HTML?',
+          suggestions: [
+            {answer: '<input type="checkbox">', correct: true},
+            {answer: '<checkbox>'},
+            {answer: 'input=checkbox>'},
+            {answer: '<input checkbox>'},
+          ]
+        },
+        {
+          question: 'Choose the correct HTML tag for the smallest size heading?',
+          suggestions: [
+            {answer: 'h4'},
+            {answer: 'h7'},
+            {answer: 'h2'},
+            {answer: 'h6', correct: true},
+          ]
+        },
+        {
+          question: 'Dj cuppy owns how many ferraris 😂',
+          suggestions: [
+            {answer: '1'},
             {answer: '2'},
-            {answer: '10'},
-            {answer: '5', correct: true},
+            {answer: '3', correct: true},
+            {answer: '4'},
           ]
         }
       ],
@@ -83,6 +146,7 @@ export default {
       scoreDisplay: false,
       nextBtn: false,
       skipBtn: true,
+      bar: 0
     }
   },
   methods: {
@@ -97,6 +161,7 @@ export default {
         this.nextBtn = false
         this.skipBtn = true
       }
+      this.bar = this.bar + (100/this.questions.length)
     },
     selectResponse(e){
       if(e.correct){
@@ -158,7 +223,8 @@ span{
   width: 20px;
   height: 100%;
   background: #FFFFFF;
-  border-radius: 100px
+  border-radius: 100px;
+  transition: all 300ms;
 }
 .btn{
   display: flex;
