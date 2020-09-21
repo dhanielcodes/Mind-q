@@ -34,12 +34,25 @@ export default {
 }
 .main .takeQuize{
   grid-area: takequiz;
-  background: var(--secondary);
+  background: rgba(21, 21, 21, 0.733);
   display: grid;
   place-items: center;
+  color: rgba(255, 255, 255, 0.137);
+  pointer-events: none;
+  position: relative;
+}
+.main .takeQuize::after{
+  content: 'Not avalable for now';
+  border: 2px solid yellow;
+  padding: 10px;
+  color: yellow;
+  border-radius: 200px;
+  opacity: 100%;
+  position: absolute;
 }
 .main .takeQuize img{
-  transform: rotate(20deg)
+  transform: rotate(20deg);
+  opacity: .1;
 }
 .main .popQuiz{
   grid-area: popquiz;

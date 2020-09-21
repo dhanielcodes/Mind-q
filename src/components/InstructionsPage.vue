@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Instructions.</h1>
+    <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Instructions.</h2>
     <div class="main">
       <div v-on:click="take =! take, pop = false" v-bind:class="{open: take}" class="takequiz ins"><h3>Take Quiz</h3> <img src="../assets/images/take_quiz.svg" alt="" srcset=""></div>
       <div v-on:click="pop =! pop, take = false" v-bind:class="{open: pop}" class="popquiz ins"><h3>Pop Quiz</h3> <img src="../assets/images/pop_quiz.svg" alt="" srcset=""></div>

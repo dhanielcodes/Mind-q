@@ -34,7 +34,7 @@ export default {
   z-index: -1;
 }
 .logo{
-  margin: 10px 0;
+  margin: 25px 0;
   width: 150px
 }
 a{

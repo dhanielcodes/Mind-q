@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Choose Quiz.</h1>
+    <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Choose Quiz.</h2>
 
     <div class="categories">
       <div class="music cat">
