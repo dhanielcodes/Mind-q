@@ -47,7 +47,6 @@ export default {
   padding: 10px;
   color: yellow;
   border-radius: 200px;
-  opacity: 100%;
   position: absolute;
 }
 .main .takeQuize img{
