@@ -42,7 +42,7 @@ export default {
   position: relative;
 }
 .main .takeQuize::after{
-  content: 'Not avalable for now';
+  content: 'Coming soon';
   border: 2px solid yellow;
   padding: 10px;
   color: yellow;

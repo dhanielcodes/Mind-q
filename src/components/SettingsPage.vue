@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="error" v-bind:class="{show: show}">Not functional yet</p>
+    <p class="error" v-bind:class="{show: show}">Coming soon</p>
     <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Settings.</h2>
     <div class="main">
       <div v-on:click="show =! show" class="light"><img src="../assets/images/light_mode.svg" alt=""> <h1>Light 🌞</h1> </div>

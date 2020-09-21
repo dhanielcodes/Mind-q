@@ -48,7 +48,7 @@ span{
   position: relative;
 }
 .takequiz::after{
-  content: 'Select any category of your choice and enjoy ! 😎';
+  content: 'Select any category of your choice and enjoy ! 😎. Will be available soon.';
   position: absolute;
   top: -10%;
   left: 50%;
@@ -63,7 +63,7 @@ span{
   transition: all 300ms;
 }
 .popquiz::after{
-  content: 'Answer random questions from different topics ! 🤪';
+  content: 'Answer random questions from different topics ! 🤪, But for now there are just html questions.';
   position: absolute;
   top: -10%;
   left: 50%;
