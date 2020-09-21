@@ -1,6 +1,11 @@
 <template>
-  <div class="hello">
-    <h1>Not found</h1>
+  <div class="none">
+    <h1>Unavailable Quiz 😕</h1>
+    <h2>No cheating you can’t find the answers here biko !</h2>
+    <div class="img">
+      <img src="../assets/images/error.png" alt="" srcset="">
+    </div>
+    <router-link to="/">Take Me Home 🏠</router-link>
   </div>
 </template>
 
@@ -15,5 +20,36 @@ export default {
 </script>
 
 <style scoped>
-
+.none{
+  text-align: center;
+}
+.none h1{
+  font-size: 50px;
+}
+.none .img{
+  margin-top: 50px;
+  width: 400px;
+  pointer-events: none;
+  margin: auto;
+}
+.none .img img{
+  width: 100%;
+}
+a{
+  margin-top: 10px;
+  padding: 10px;
+  background: #459AAC;
+  border-radius: 10px
+}
+@media screen and (max-width: 450px){
+  .none h1{
+    font-size: 40px
+  }
+  .none h2{
+    font-size: 18px;
+  }
+  .none .img{
+    width: 90%;
+  }
+}
 </style>

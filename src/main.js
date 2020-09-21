@@ -2,14 +2,19 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+
+
+//MINOR COMPONENTS
+import feedback from './components/minorComponents/feedback.vue'
+Vue.component('feedback', feedback)
+
 //ROUTED COMPONENTS
 import HomePage from './components/HomePage.vue'
 import ChooseCategoryPage from './components/ChooseCategoryPage.vue'
 import SettingsPage from './components/SettingsPage.vue'
 import InstructionsPage from './components/InstructionsPage.vue'
+import PopQuiz from './components/PopQuiz.vue'
 import notFound from './components/404.vue'
-
-
 
 let router = new VueRouter({
   routes: [
@@ -17,7 +22,8 @@ let router = new VueRouter({
     {path: '/', component: HomePage},
     {path: '/category', component: ChooseCategoryPage},
     {path: '/settings', component: SettingsPage},
-    {path: '/instructions', component: InstructionsPage}
+    {path: '/instructions', component: InstructionsPage},
+    {path: '/popquiz', component: PopQuiz},
   ],
   mode: 'history'
 })

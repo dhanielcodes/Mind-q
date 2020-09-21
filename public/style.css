@@ -7,6 +7,9 @@
 }
 body{
     background-color: black;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
+}
+::selection{
+    background: #F6E486;
 }
