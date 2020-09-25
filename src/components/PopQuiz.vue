@@ -64,84 +64,84 @@ export default {
     return {
       questions: [
         {
-          question: 'What type of a language is HTML?',
+          question: "What happened to davido's chioma",
           suggestions: [
-            {answer: 'Scripting Language'},
-            {answer: 'Markup Language', correct: true},
-            {answer: 'Programming Language'},
-            {answer: 'Network Protocol'},
+            {answer: 'Entanglement with Wizkid'},
+            {answer: 'Divorced Davido', correct: true},
+            {answer: 'Corona Virus killed her'},
+            {answer: 'She go use Davido catch cruise'},
           ]
         },
         {
-          question: 'What should be the first tag in any HTML Document? ',
+          question: "Why didn't man u buy players this season",
           suggestions: [
-            {answer: '<head>'},
-            {answer: '<html>'},
-            {answer: '<title>'},
-            {answer: '<!doctype html>', correct: true},
+            {answer: 'poverty'},
+            {answer: 'Health issues'},
+            {answer: 'Mourinho spirit they haunt them'},
+            {answer: 'Them no just buy', correct: true},
           ]
         },
         {
-          question: 'What tag is used to display a picture in a HTML page?',
+          question: "ASUU has been on strike for what reason",
           suggestions: [
-            {answer: 'Image'},
-            {answer: 'Src'},
-            {answer: 'Img',  correct: true},
-            {answer: 'Picture'},
+            {answer: 'Corona'},
+            {answer: 'Anytime fuel money rise'},
+            {answer: 'Chancellor born pickin'},
+            {answer: 'Lecturers don turn enter politics', correct: true},
           ]
         },
         {
-          question: 'HTML are web pages read and rendered by',
+          question: `Fill in the gap - I was tired, but I __ did it`,
           suggestions: [
-            {answer: 'Server'},
-            {answer: 'Web browser', correct: true},
-            {answer: 'Compiler'},
-            {answer: 'Intrepreter'},
+            {answer: 'Nengilly'},
+            {answer: 'Ozolly', correct: true},
+            {answer: 'reluctantly'},
+            {answer: 'still'},
           ]
         },
         {
-          question: 'What is the correct HTML tag for inserting a line break?',
+          question: 'What do we learn from DJ cuppy',
           suggestions: [
-            {answer: '<break />'},
-            {answer: '<nbsp>'},
-            {answer: '<lb>'},
-            {answer: '<br />', correct: true},
+            {answer: 'None of the above'},
+            {answer: 'How not to be poor'},
+            {answer: 'Oppression'},
+            {answer: "how to buy ferrari with your dad's money", correct: true},
           ]
         },
         {
-          question: 'What is the correct HTML for making a hyperlink?',
+          question: 'If you want to beg for money, how ?',
           suggestions: [
-            {answer: '<http://mcqsets.com</a>'},
-            {answer: 'url="http://mcqsets.com">MCQ Sets Quiz'},
-            {answer: '<a name="http://mcqsets.com">MCQ Sets Quiz</a>'},
-            {answer: '<a href="http://mcqsets.com">MCQ Sets Quiz</a>', correct: true},
+            {answer: 'Please lend me some money'},
+            {answer: 'Borrow me money'},
+            {answer: 'abeg I need cash'},
+            {answer: 'abeg my account', correct: true},
           ]
         },
         {
-          question: 'HTML documents are saved in',
+          question: "What do y'all think is gonna happen after Mark Zuck. is done building a branch of Fb here in lagos",
           suggestions: [
+            {answer: "Yahoo boys will increase"},
+            {answer: 'Imposter syndrome x2' , correct: true},
             {answer: 'None'},
-            {answer: 'ASCII text' , correct: true},
-            {answer: 'Special binary format'},
-            {answer: 'Machine language codes'},
+            {answer: 'yahoo boys go cash out finally'},
           ]
         },
         {
-          question: 'Which tag creates a check box for a form in HTML?',
+          question: 'Serious question - Imagine yourself with 10 million naira...',
           suggestions: [
-            {answer: '<input type="checkbox">', correct: true},
-            {answer: '<checkbox>'},
-            {answer: 'input=checkbox>'},
-            {answer: '<input checkbox>'},
+            {answer: 'Save it until I have enough to buy 3 ferraris for my child 😂', correct: true},
+            {answer: 'Invest'},
+            {answer: 'Club'},
+            {answer: 'Wake up from your dream'},
           ]
         },
         {
-          question: 'Choose the correct HTML tag for the smallest size heading?',
+          question: "Tricky - Who will win this year's BBN",
           suggestions: [
-            {answer: 'h4'},
-            {answer: 'h7'},
-            {answer: 'h2'},
-            {answer: 'h6', correct: true},
+            {answer: 'N/A'},
+            {answer: 'N/A'},
+            {answer: 'N/A'},
+            {answer: 'Laycon', correct: true},
           ]
         },
         {

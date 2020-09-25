@@ -1,6 +1,6 @@
 <template>
   <div class="none">
-    <h1>Unavailable Quiz 😕</h1>
+    <h1>Unavailable Quiz 😕. comming soon</h1>
     <h2>No cheating you can’t find the answers here biko !</h2>
     <div class="img">
       <img src="../assets/images/error.png" alt="" srcset="">
@@ -24,7 +24,8 @@ export default {
   text-align: center;
 }
 .none h1{
-  font-size: 50px;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 .none .img{
   margin-top: 50px;
@@ -43,7 +44,7 @@ a{
 }
 @media screen and (max-width: 450px){
   .none h1{
-    font-size: 40px
+    font-size: 30px
   }
   .none h2{
     font-size: 18px;

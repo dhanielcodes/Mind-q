@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1>Home.</h1>
+    <h1>Activity 🤸‍♂️</h1>
     <div class="main">
-      <div @click="category = true" class="takeQuize"><h1>Take Quiz</h1> <img src="../assets/images/take_quiz.svg" alt=""></div>
+      <div @click="category = true" class="takeQuize"><h1>Take Quiz</h1> <img src="../assets/images/single.svg" alt=""></div>
       <router-link to="/popquiz" class="popQuiz"><h1>Pop Quiz</h1> <img src="../assets/images/pop_quiz.svg" alt=""></router-link>
+      <router-link to="/time" class="timed"><h1>Timed test</h1> <img src="../assets/images/time.svg" alt=""></router-link>
+      <router-link to="/multi" class="multi"><h1>Multiplayer</h1> <img src="../assets/images/take_quiz.svg" alt=""></router-link>
       <router-link to="/settings" class="settings"><h1>Settings</h1> <img src="../assets/images/settings.svg" alt=""></router-link>
       <router-link to="/instructions" class="instructions"><h1>instructions</h1> <img src="../assets/images/instructions.svg" alt=""></router-link>
     </div>
@@ -63,18 +65,25 @@ export default {
   grid-gap: 20px;
   height: 70vh;
   grid-template-areas: 
-  'takequiz popquiz'
-  'takequiz settings'
-  'instructions instructions'
+  'takequiz popquiz timed'
+  'multi multi settings'
+  'instructions instructions instructions'
   ;
 }
 .main .takeQuize{
   grid-area: takequiz;
   background: var(--secondary);
-  display: grid;
-  place-items: center;
+   display: flex;
+  justify-content: space-around;
+  align-items: center; 
   cursor: pointer;
   position: relative;
+  padding: 0 15px;
+  font-size: 13px;
+}
+a{
+  padding: 0 15px;
+  font-size: 13px;
 }
 .main .takeQuize img{
   transform: rotate(20deg);
@@ -103,11 +112,29 @@ export default {
 .main .instructions img{
   align-self: flex-end;
 }
-@media screen and (max-width: 700px){
+
+.main .timed{
+  grid-area: timed;
+    background: var(--secondary);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.main .multi{
+  grid-area: multi;
+    background: var(--secondary);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (max-width: 800px){
   .main{
     grid-template-areas: 
       'takequiz takequiz'
       'popquiz popquiz'
+      'timed timed'
+      'multi multi'
       'settings settings'
       'instructions instructions'
     ;
@@ -187,7 +214,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  padding: 10px;
+  padding: 8px;
   border-radius: 200px;
   border: 3px solid yellow;
   color: yellow;

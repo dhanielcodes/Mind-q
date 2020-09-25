@@ -2,8 +2,10 @@
   <div class="hello">
     <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Instructions.</h2>
     <div class="main">
-      <div v-on:click="take =! take, pop = false" v-bind:class="{open: take}" class="takequiz ins"><h3>Take Quiz</h3> <img src="../assets/images/take_quiz.svg" alt="" srcset=""></div>
-      <div v-on:click="pop =! pop, take = false" v-bind:class="{open: pop}" class="popquiz ins"><h3>Pop Quiz</h3> <img src="../assets/images/pop_quiz.svg" alt="" srcset=""></div>
+      <div v-on:click="take =! take, pop = false, time = false, multi = false" v-bind:class="{open: take}" class="takequiz ins"><h3>Take Quiz</h3> <img src="../assets/images/single.svg" alt="" srcset=""></div>
+      <div v-on:click="pop =! pop, take = false, time = false, multi = false" v-bind:class="{open: pop}" class="popquiz ins"><h3>Pop Quiz</h3> <img src="../assets/images/pop_quiz.svg" alt="" srcset=""></div>
+      <div v-on:click="time =! time, multi = false, pop = false, take = false" v-bind:class="{open: time}" class="time ins"><h3>Timed test</h3> <img src="../assets/images/time.svg" alt="" srcset=""></div>
+      <div v-on:click="multi =! multi, take = false, time = false, pop = false" v-bind:class="{open: multi}" class="multi ins"><h3>Multiplayer</h3> <img src="../assets/images/take_quiz.svg" alt="" srcset=""></div>
     </div>
     <feedback></feedback>
   </div>
@@ -14,7 +16,9 @@ export default {
  data() {
    return {
      take: false,
-     pop: false
+     pop: false,
+     time: false,
+     multi: false
    }
  },
 }
@@ -32,6 +36,7 @@ span{
   display: flex;
   padding: 0 40px;
   cursor: pointer;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   background: var(--secondary)
@@ -40,7 +45,6 @@ span{
   width: 100px
 }
 .popquiz{
-  margin-bottom: 60px;
   position: relative;
 }
 /*--popups--*/
@@ -63,7 +67,7 @@ span{
   transition: all 300ms;
 }
 .popquiz::after{
-  content: 'Answer random questions from different topics ! 🤪, But for now there are just html questions.';
+  content: 'Answer random questions from different topics ! 🤪.';
   position: absolute;
   top: -10%;
   left: 50%;
@@ -77,12 +81,39 @@ span{
   transform: translateX(-50%);
   transition: all 300ms;
 }
-.takequiz.open::after{
+.time::after{
+  content: 'How fast are you, answer 10 random question in 1min !⚡.';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  color: black;
+  padding: 30px;
+  width: 220px;
+  background: #4BFFA9;
+  border-radius: 2000px;
+  transform: translateX(-50%);
+  transition: all 300ms;
+}
+.multi::after{
+  content: '👫 Pare up with people answer random questions. Comming soon...';
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  color: black;
+  padding: 30px;
+  width: 220px;
+  background: #4BFFA9;
+  border-radius: 2000px;
+  transform: translateX(-50%);
+  transition: all 300ms;
+}
+.takequiz.open::after, .popquiz.open::after, .time.open::after, .multi.open::after{
   opacity: 1;
   top: -30%;
 }
-.popquiz.open::after{
-  opacity: 1;
-  top: -30%;
-}
+
 </style>
