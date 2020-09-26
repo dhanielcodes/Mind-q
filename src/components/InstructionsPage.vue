@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <preloader />
     <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Instructions.</h2>
     <div class="main">
       <div v-on:click="take =! take, pop = false, time = false, multi = false" v-bind:class="{open: take}" class="takequiz ins"><h3>Take Quiz</h3> <img src="../assets/images/single.svg" alt="" srcset=""></div>
@@ -31,7 +32,7 @@ span{
 }
 .ins{
   width: 100%;
-  height: 22vh;
+  height: 10vh;
   margin: 20px 0;
   display: flex;
   padding: 0 40px;
@@ -42,7 +43,7 @@ span{
   background: var(--secondary)
 }
 .ins img{
-  width: 100px
+  width: 40px
 }
 .popquiz{
   position: relative;
@@ -113,7 +114,7 @@ span{
 }
 .takequiz.open::after, .popquiz.open::after, .time.open::after, .multi.open::after{
   opacity: 1;
-  top: -30%;
+  top: -120%;
 }
 
 </style>

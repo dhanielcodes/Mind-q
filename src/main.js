@@ -7,6 +7,10 @@ Vue.use(VueRouter)
 //MINOR COMPONENTS
 import feedback from './components/minorComponents/feedback.vue'
 Vue.component('feedback', feedback)
+import preloader from './components/minorComponents/preloader.vue'
+Vue.component('preloader', preloader)
+
+
 
 //ROUTED COMPONENTS
 import HomePage from './components/HomePage.vue'

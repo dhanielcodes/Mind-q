@@ -2,7 +2,9 @@
   <div id="app">
     <img class="watermark" alt="Vue logo" src="./assets/images/watermark.svg">
     <img class="logo" alt="Vue logo" src="./assets/images/logo2.png">
-    <router-view></router-view>
+    <transition name="view">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -40,5 +42,17 @@ export default {
 a{
   color: var(--white);
   text-decoration: none
+}
+.view-enter-active, .view-leave-active{
+  transition: all 400ms;
+}
+.view-enter-active{
+  transition-delay: 400ms;
+}
+.view-enter, .view-leave-to{
+  opacity :0
+}
+.view-leave, .view-enter-to{
+  opacity: 1;
 }
 </style>

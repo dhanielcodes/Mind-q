@@ -1,5 +1,6 @@
 <template>
   <div>
+    <preloader />
     <h1>Activity 🤸‍♂️</h1>
     <div class="main">
       <div @click="category = true" class="takeQuize"><h1>Take Quiz</h1> <img src="../assets/images/single.svg" alt=""></div>
@@ -80,6 +81,7 @@ export default {
   position: relative;
   padding: 0 15px;
   font-size: 13px;
+  line-break: 20px;
 }
 a{
   padding: 0 15px;
@@ -214,10 +216,11 @@ a{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  padding: 8px;
+  padding: 2px;
   border-radius: 200px;
   border: 3px solid yellow;
   color: yellow;
+  font-size: 10px;
 }
 @media screen and (max-width: 650px) {
   .categories{

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <preloader />
     <p class="error" v-bind:class="{show: show}">Coming soon</p>
     <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Settings.</h2>
     <div class="main">

@@ -13,3 +13,10 @@ body{
 ::selection{
     background: #F6E486;
 }
+::-webkit-scrollbar{
+    width: 0px;
+  }
+::-webkit-scrollbar-thumb{
+    background: var(--white);
+    border-radius: 0px;
+  }

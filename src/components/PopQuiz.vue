@@ -1,5 +1,6 @@
 <template>
     <div>
+    <preloader />
         <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Pop Quiz.</h2>
         <!-- INFO POP UP BEFORE GAME STARTS -->
         <div class="info" v-if="info">
@@ -375,8 +376,12 @@ ul li.wrong{
 .score{
   text-align: center;
 }
+.score h1{
+  margin-top: 35px;
+  font-size: 22px;
+}
 .score img{
-  width: 250px;
+  width: 210px;
 }
 .score .s{
   margin: 15px 0;
