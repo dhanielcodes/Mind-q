@@ -5,9 +5,9 @@
         <div class="socials">
             <a href="http://adekoyadaniel53@gmail.com" target="_blank">adekoyadaniel53@gmail.com</a>
             <div class="media">
-                <a href="https://www.linkedin.com/in/daniel-adekoya-010810192/"><img src="../../assets/images/linkedin.svg" alt=""></a>
-                <a href="https://twitter.com/DanielAdekoya11"><img src="../../assets/images/twitter.svg" alt=""></a>
-                <a href="https://www.instagram.com/danieladekoya_/"><img src="../../assets/images/instagram.svg" alt=""></a>
+                <a href="https://www.linkedin.com/in/daniel-adekoya-010810192/" target="_blank"><img src="../../assets/images/linkedin.svg" alt=""></a>
+                <a href="https://twitter.com/DanielAdekoya11" target="_blank"><img src="../../assets/images/twitter.svg" alt=""></a>
+                <a href="https://www.instagram.com/danieladekoya_/" target="_blank"><img src="../../assets/images/instagram.svg" alt=""></a>
             </div>
         </div>
     </div>

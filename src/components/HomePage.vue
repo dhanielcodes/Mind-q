@@ -6,7 +6,7 @@
       <div @click="category = true" class="takeQuize"><h1>Take Quiz</h1> <img src="../assets/images/single.svg" alt=""></div>
       <router-link to="/popquiz" class="popQuiz"><h1>Pop Quiz</h1> <img src="../assets/images/pop_quiz.svg" alt=""></router-link>
       <router-link to="/time" class="timed"><h1>Timed test</h1> <img src="../assets/images/time.svg" alt=""></router-link>
-      <router-link to="/multi" class="multi"><h1>Multiplayer</h1> <img src="../assets/images/take_quiz.svg" alt=""></router-link>
+      <router-link to="/multiplayer" class="multi"><h1>Multiplayer</h1> <img src="../assets/images/take_quiz.svg" alt=""></router-link>
       <router-link to="/settings" class="settings"><h1>Settings</h1> <img src="../assets/images/settings.svg" alt=""></router-link>
       <router-link to="/instructions" class="instructions"><h1>instructions</h1> <img src="../assets/images/instructions.svg" alt=""></router-link>
     </div>
@@ -186,6 +186,7 @@ a{
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(auto, 1fr);
   overflow: hidden;
+  border-radius: 20px;
   padding: 10px;
   overflow-y: scroll;
 }

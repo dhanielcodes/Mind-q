@@ -17,15 +17,17 @@ import HomePage from './components/HomePage.vue'
 import SettingsPage from './components/SettingsPage.vue'
 import InstructionsPage from './components/InstructionsPage.vue'
 import PopQuiz from './components/PopQuiz.vue'
+import Multiplayer from './components/Multiplayer.vue'
 import notFound from './components/404.vue'
 
 let router = new VueRouter({
   routes: [
-    {path: '*', component: notFound},
-    {path: '/', component: HomePage},
-    {path: '/settings', component: SettingsPage},
-    {path: '/instructions', component: InstructionsPage},
-    {path: '/popquiz', component: PopQuiz},
+    {path: '*', component: notFound, meta: {title: '404 - not found'}},
+    {path: '/', component: HomePage, meta: {title: 'Mind-Q'}},
+    {path: '/settings', component: SettingsPage, meta: {title: 'Settings'}},
+    {path: '/instructions', component: InstructionsPage, meta: {title: 'Instructions'}},
+    {path: '/popquiz', component: PopQuiz, meta: {title: 'Pop - Quiz'}},
+    {path: '/multiplayer', component: Multiplayer, meta: {title: 'Multiplayer'}}
   ],
   mode: 'history'
 })

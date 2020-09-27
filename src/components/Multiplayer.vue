@@ -1,69 +1,35 @@
 <template>
     <div>
     <preloader />
-        <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Pop Quiz.</h2>
+        <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Multiplayer</h2>
         <!-- INFO POP UP BEFORE GAME STARTS -->
-        <div class="info" v-if="info">
-          <h1>Pop Quiz</h1>
-          <h3>Answer random questions to test your overall knowledge, no google anything o. 👺</h3>
-          <p>{{questions.length}} questions - Total</p>
-          <div class="btns">
-            <button @click="countDown">Start</button><button><router-link to="/">Cancel</router-link></button>
-          </div>
+        <div class="info" v-if="!secondplayer">
+          <h1>Multiplayer</h1>
+          <h3>Answer the questions under a timer, highest score wins !. 👺</h3>
+          <p>Copy link <br> {{url}} </p>
         </div>
-        <!-- COUNTER -->
-        <div class="count" v-if="count">
-          <h1> {{countdown}} </h1>
+        <div v-if="secondplayer">
+          <h1>If you seeing this that means it works when deployed, just send me a dm that it works please 😭😭😭😭 and let me add the correct features</h1>
         </div>
-        <!-- GAME QUIZ -->
-        <div class="pop"  v-if="quiz">
-          <div class="quiz" v-for="(item, index) in questions.slice(a,b)" :key="index" >
-            <div class="side1">
-              <div class="progress">
-                <div class="counter"><p>Questions {{b}}/{{questions.length = 10}}</p></div>
-                <div class="bar">
-                  <div class="metre" :style="{width: bar + '%'}"></div>
-                </div>
-              </div>
-              <div class="question">
-                <h2>{{item.question}}</h2>
-              </div>
-              <div class="btn">
-                <button @click="next" v-if="skipBtn" class="skip">SKIP QUESTION</button>
-                <button @click="next" v-if="nextBtn" class="nxt">NEXT</button>
-              </div>
-
-            </div>
-            <div class="side2">
-              <ul>
-                <li  v-for="(items, index) in item.suggestions" :key="index" :class="select ? check(items) : ''" @click='selectResponse(items)'>{{items.answer}}</li>
-              </ul>
-            </div>
-          </div>        
-        </div>
-        <!-- RESULTS OF THE GAME PLAYED -->
-        <div class="score" v-if="scoreDisplay">
-          <h1 v-if="high">Omo who give you brain like this 😲 !</h1>
-          <h1 v-if="low">Olodo ni ehn !. Chop red card 😂 🤣</h1>
-          <h1 v-if="average">You try small sha... 😜</h1>
-          <p class="s">Correct answers - {{score/200}} / {{questions.length}}</p>
-          <img v-if="high" class="s" loading='lazy' src="../assets/images/celebration.svg" alt="" srcset="">
-          <img v-if="average" class="s" loading='lazy' src="../assets/images/average.svg" alt="" srcset="">
-          <img v-if="low" class="s" loading='lazy' src="../assets/images/low.svg" alt="" srcset="">
-          <h2 class="s">You scored - {{score}} points</h2>
-          <div class="btn s">
-            <button @click="restart">Restart</button>
-            <button ><router-link to='/'>Back Home</router-link></button>
-          </div>
-        </div>
+       
     </div>
 </template>
 
 <script>
+import details from '../details'
+/* import axios from 'axios' */
+
+
 export default {
+  name: 'Multiplayer',
+  head(){
+      return{
+          title: 'Multiplayer'
+      }
+  },
   data() {
     return {
-      questions: [
+      /* questions: [
         {
           question: "What happened to davido's chioma",
           suggestions: [
@@ -154,8 +120,8 @@ export default {
             {answer: '4'},
           ]
         }
-      ],
-      a: 0,
+      ], */
+     /*  a: 0,
       b: 1,
       select: false,
       score: 0,
@@ -169,10 +135,92 @@ export default {
       count: false, 
       high: false,
       low: false,
-      average: false
+      average: false, */
+
+      //Extra for Multiplayer
+
+      presenceid: null,
+      hasAnswered: null,
+      Questions: null,
+      options: null,
+
+      correctAnswer: null,
+      counting: null,
+      players: 1,
+      secondplayer: false,
+      notificationClass: null,
+      playerdata: {
+          one: {
+              id: null,
+              score: 0,
+              userid: null
+          },
+          two: {
+              id: null,
+              score: 0,
+              userid: null
+          }
+      },
+      userid: null,
+      url: null
     }
   },
+  created(){
+      this.fetchData()
+  },
   methods: {
+    fetchData(){
+        this.presenceid = this.getUniqueId()
+
+        if(!this.checkPresenceId()){
+            let separator = (window.location.href.indexOf('?') === -1) ? '?' : '&'
+            window.location.href = window.location.href + separator + this.presenceid
+        }
+
+        this.url = window.location.href
+
+        let channel = details.subscribeToPusher()
+
+        channel.bind('pusher: member_added', () => {
+            this.players += 1
+            this.secondplayer = true
+        })
+
+        channel.bind('pusher: subscription_succeeded', (members) => {
+          if(members.count === 1 && !this.playerdata.one.id){
+            this.playerdata.one.id = members.myID
+            this.playerdata.one.userid = 1
+            this.userid = 1
+          }else if (members.count === 2){
+            this.secondplayer = true
+            this.playerdata.two.id = members.myID
+            this.playerdata.two.userid = 2
+            this.userid = 2
+          }
+        })
+
+        channel.bind('pusher: member_removed' , (members) => {
+          if(members.count === 1){
+            this.secondplayer = false
+          }
+        })
+    },
+    getUniqueId(){
+      return 'id=' + Math.random().toString(36).substr(2, 8)
+    },
+    checkPresenceId(){
+      let getQueryString = (field, url) => {
+        let href = url ? url : window.location.href
+        let reg = new RegExp('[?&]' + field + '=([^&#]*)', 'i')
+        let string = reg.exec(href)
+        return string ? string[1] : null
+      }
+      let id = getQueryString('id')
+      return id
+    },
+
+    //SEPARATED
+
     countDown(){
       if(this.countdown > 0){
         setTimeout(() => {
@@ -236,9 +284,6 @@ export default {
         return 'wrong'
       }
     },
-    restart(){
-      Object.assign(this.$data, this.$options.data())
-    },
   },
   computed: {
   
@@ -247,10 +292,6 @@ export default {
 </script>
 
 <style scoped>
-span{
-  color: var(--black);
-  pointer-events: none;
-}
 .info{
   text-align: center;
   height: 400px;
@@ -260,7 +301,7 @@ span{
   display: grid;
   place-items: center;
   background: var(--secondary);
-  background-image: url(../assets/images/instructionbg_pop.svg);
+  background-image: url(../assets/images/instructionbg_multu.svg);
   background-size: cover;
   background-repeat: no-repeat; 
   position: absolute;
@@ -269,140 +310,7 @@ span{
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.info .btns{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 95%;
-}
-.info .btns button{
-  padding: 5px 20px;
-  border: none;
-  outline: none;
-  border-radius: 200px; 
-  font-size: 20px;
-  cursor: pointer;
-}
-.info .btns button:nth-child(1){
-  background: #4BFFA9
-}
-.info .btns button:nth-child(2){
-  background: #F13555;
-  color: white;
-}
-.count{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 40px;
-  transition: all 300ms;
-}
-.quiz{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 50px;
-  width: 650px;
-  margin: 30px auto;
-  height: 65vh;
-}
-.quiz .side1{
-  background: #202E51;
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.side1 .counter{
-  background: var(--secondary);
-  padding: 10px 15px;
-  border-radius: 10px;
-  align-self: flex-start;
-}
-.progress .bar{
-  width: 100%;
-  height: 10px;
-  margin: 10px 0;
-  border-radius: 100px; 
-  background: var(--secondary)
-}
-.bar .metre{
-  width: 20px;
-  height: 100%;
-  background: #FFFFFF;
-  border-radius: 100px;
-  transition: all 300ms;
-}
-.btn{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.side1 .skip, .nxt, .score button{
-  background: #F25817;
-  padding: 10px 15px;
-  border-radius: 10px;
-  color: white;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-button:nth-child(2){
-  background: #459AAC;
-  padding: 10px 20px
-}
-.nxt{
-  background: #459AAC;
-}
-.quiz .side2 ul{
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  list-style: none;
-  height: 100%;
-}
-ul li{
-  background: #1D1D1D;
-  padding: 15px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-ul li.correct{
-  background: #4BFFA9;
-  color: black;  
-}
-ul li.wrong{
-  background: #F13555;
-}
-.score{
-  text-align: center;
-}
-.score h1{
-  margin-top: 35px;
-  font-size: 22px;
-}
-.score img{
-  width: 210px;
-}
-.score .s{
-  margin: 15px 0;
-}
-@media screen and (max-width: 720px){
-  .quiz{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-row-gap: 50px;
-    width: 100%;
-    margin: 30px auto;
-    height: 70vh;
-  }
-  ul li{
-    margin: 5px 0;
-  }
-  .info{
-    width: 80%;
-  }
+span{
+  color: black;
 }
 </style>
