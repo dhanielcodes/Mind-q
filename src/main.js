@@ -14,20 +14,20 @@ Vue.component('preloader', preloader)
 
 //ROUTED COMPONENTS
 import HomePage from './components/HomePage.vue'
-import SettingsPage from './components/SettingsPage.vue'
 import InstructionsPage from './components/InstructionsPage.vue'
 import PopQuiz from './components/PopQuiz.vue'
-import Multiplayer from './components/Multiplayer.vue'
+import Guess from './components/Guess.vue'
+import Timed from './components/TimedQuiz.vue'
 import notFound from './components/404.vue'
 
 let router = new VueRouter({
   routes: [
     {path: '*', component: notFound, meta: {title: '404 - not found'}},
     {path: '/', component: HomePage, meta: {title: 'Mind-Q'}},
-    {path: '/settings', component: SettingsPage, meta: {title: 'Settings'}},
     {path: '/instructions', component: InstructionsPage, meta: {title: 'Instructions'}},
     {path: '/popquiz', component: PopQuiz, meta: {title: 'Pop - Quiz'}},
-    {path: '/multiplayer', component: Multiplayer, meta: {title: 'Multiplayer'}}
+    {path: '/guess', component: Guess, meta: {title: 'Guess'}},
+    {path: '/timed', component: Timed, meta: {title: 'Timed'}}
   ],
   mode: 'history'
 })
@@ -37,3 +37,11 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount('#app')
+
+
+
+
+
+document.querySelector('.theme').addEventListener('click', () => {
+  document.querySelector('body').classList.toggle('light')
+})

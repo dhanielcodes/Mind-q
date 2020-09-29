@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <preloader />
-    <h2><router-link to="/"><img src="../assets/images/back.svg" alt=""></router-link> <span>-</span> Instructions.</h2>
+    <h2><router-link to="/"> {{back}} </router-link> <span>-</span> Instructions.</h2>
     <div class="main">
       <div v-on:click="take =! take, pop = false, time = false, multi = false" v-bind:class="{open: take}" class="takequiz ins"><h3>Take Quiz</h3> <img src="../assets/images/single.svg" alt="" srcset=""></div>
       <div v-on:click="pop =! pop, take = false, time = false, multi = false" v-bind:class="{open: pop}" class="popquiz ins"><h3>Pop Quiz</h3> <img src="../assets/images/pop_quiz.svg" alt="" srcset=""></div>
@@ -19,7 +19,8 @@ export default {
      take: false,
      pop: false,
      time: false,
-     multi: false
+     multi: false,
+     back: '<',
    }
  },
 }
@@ -98,7 +99,7 @@ span{
   transition: all 300ms;
 }
 .multi::after{
-  content: '👫 Pare up with people answer random questions. Comming soon...';
+  content: '👫 Guess the missing letters of names of famous celebs';
   position: absolute;
   top: -10%;
   left: 50%;

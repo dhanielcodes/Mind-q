@@ -5,10 +5,21 @@
     font-family: 'poppins', gilroy;
     font-weight: 400;
 }
+
 body{
-    background-color: black;
+    --black: black;
+    --white: white;
+    --secondary: #1D1D1D;
+
+    background-color: var(--black);
     width: 90%;
     margin: 0 auto;
+    transition: all 400ms;
+}
+body.light{
+    --black: white;
+    --white: black;
+    --secondary: #ececec;
 }
 ::selection{
     background: #F6E486;

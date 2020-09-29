@@ -1,11 +1,11 @@
 <template>
     <div>
     <preloader />
-        <h2><router-link to="/"> {{back}} </router-link> <span>-</span> Pop Quiz.</h2>
+        <h2><router-link to="/">{{back}}</router-link> <span>-</span> Timed Test.</h2>
         <!-- INFO POP UP BEFORE GAME STARTS -->
         <div class="info" v-if="info">
-          <h1>Pop Quiz</h1>
-          <h3>Answer random questions to test your overall knowledge, no google anything o. 👺</h3>
+          <h1>Timed Test</h1>
+          <h3>Answer the questions as fast as possible. ⏲</h3>
           <p>{{questions.length}} questions - Total</p>
           <div class="btns">
             <button @click="countDown">Start</button><button><router-link to="/">Cancel</router-link></button>
@@ -261,7 +261,7 @@ span{
   display: grid;
   place-items: center;
   background: var(--secondary);
-  background-image: url(../assets/images/instructionbg_pop.svg);
+  background-image: url(../assets/images/instructionbg_time.svg);
   background-size: cover;
   background-repeat: no-repeat; 
   position: absolute;
@@ -307,7 +307,6 @@ span{
   margin: 30px auto;
   height: 65vh;
   color: var(--black);
-
 }
 .quiz .side1{
   background: #202E51;
@@ -316,13 +315,14 @@ span{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: var(--black);
 }
 .side1 .counter{
   background: var(--secondary);
   padding: 10px 15px;
   border-radius: 10px;
-  color: var(--white);
   align-self: flex-start;
+  color: var(--white);
 }
 .progress .bar{
   width: 100%;
@@ -373,6 +373,7 @@ ul li{
   border-radius: 10px;
   cursor: pointer;
   color: var(--white);
+
 }
 ul li.correct{
   background: #4BFFA9;
