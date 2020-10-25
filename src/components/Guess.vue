@@ -3,59 +3,20 @@
     <preloader />
         <h2><router-link to="/"> {{back}} </router-link> <span>-</span> Guess Who ?.</h2>
         <!-- INFO POP UP BEFORE GAME STARTS -->
-        <div class="info" v-if="info">
+        <!-- <div class="info" v-if="info">
           <h1>Guess Who</h1>
           <h3>Fill in the gap, get the correct letter(s) missing</h3>
           <p>{{questions.length}} questions - Total</p>
           <div class="btns">
             <button @click="countDown">Start</button><button><router-link to="/">Cancel</router-link></button>
           </div>
-        </div>
+        </div> -->
         <!-- COUNTER -->
-        <div class="count" v-if="count">
+       <!--  <div class="count" v-if="count">
           <h1> {{countdown}} </h1>
-        </div>
+        </div> -->
         <!-- GAME QUIZ -->
-        <div class="pop"  v-if="quiz">
-          <div class="quiz" v-for="(item, index) in questions.slice(a,b)" :key="index" >
-            <div class="side1">
-              <div class="progress">
-                <div class="counter"><p>Questions {{b}}/{{questions.length = 10}}</p></div>
-                <div class="bar">
-                  <div class="metre" :style="{width: bar + '%'}"></div>
-                </div>
-              </div>
-              <div class="question">
-                <h2>{{item.question}}</h2>
-              </div>
-              <div class="btn">
-                <button @click="next" v-if="skipBtn" class="skip">SKIP QUESTION</button>
-                <button @click="next" v-if="nextBtn" class="nxt">NEXT</button>
-              </div>
-
-            </div>
-            <div class="side2">
-              <ul>
-                <li  v-for="(items, index) in item.suggestions" :key="index" :class="select ? check(items) : ''" @click='selectResponse(items)'>{{items.answer}}</li>
-              </ul>
-            </div>
-          </div>        
-        </div>
-        <!-- RESULTS OF THE GAME PLAYED -->
-        <div class="score" v-if="scoreDisplay">
-          <h1 v-if="high">Omo who give you brain like this 😲 !</h1>
-          <h1 v-if="low">Olodo ni ehn !. Chop red card 😂 🤣</h1>
-          <h1 v-if="average">You try small sha... 😜</h1>
-          <p class="s">Correct answers - {{score/200}} / {{questions.length}}</p>
-          <img v-if="high" class="s" loading='lazy' src="../assets/images/celebration.svg" alt="" srcset="">
-          <img v-if="average" class="s" loading='lazy' src="../assets/images/average.svg" alt="" srcset="">
-          <img v-if="low" class="s" loading='lazy' src="../assets/images/low.svg" alt="" srcset="">
-          <h2 class="s">You scored - {{score}} points</h2>
-          <div class="btn s">
-            <button @click="restart">Restart</button>
-            <button ><router-link to='/'>Back Home</router-link></button>
-          </div>
-        </div>
+        <h1>Coming soon</h1>
     </div>
 </template>
 
@@ -63,98 +24,7 @@
 export default {
   data() {
     return {
-      questions: [
-        {
-          question: "What happened to davido's chioma",
-          suggestions: [
-            {answer: 'Entanglement with Wizkid'},
-            {answer: 'Divorced Davido', correct: true},
-            {answer: 'Corona Virus killed her'},
-            {answer: 'She go use Davido catch cruise'},
-          ]
-        },
-        {
-          question: "Why didn't man u buy players this season",
-          suggestions: [
-            {answer: 'poverty'},
-            {answer: 'Health issues'},
-            {answer: 'Mourinho spirit they haunt them'},
-            {answer: 'Them no just buy', correct: true},
-          ]
-        },
-        {
-          question: "ASUU has been on strike for what reason",
-          suggestions: [
-            {answer: 'Corona'},
-            {answer: 'Anytime fuel money rise'},
-            {answer: 'Chancellor born pickin'},
-            {answer: 'Lecturers don turn enter politics', correct: true},
-          ]
-        },
-        {
-          question: `Fill in the gap - I was tired, but I __ did it`,
-          suggestions: [
-            {answer: 'Nengilly'},
-            {answer: 'Ozolly', correct: true},
-            {answer: 'reluctantly'},
-            {answer: 'still'},
-          ]
-        },
-        {
-          question: 'What do we learn from DJ cuppy',
-          suggestions: [
-            {answer: 'None of the above'},
-            {answer: 'How not to be poor'},
-            {answer: 'Oppression'},
-            {answer: "how to buy ferrari with your dad's money", correct: true},
-          ]
-        },
-        {
-          question: 'If you want to beg for money, how ?',
-          suggestions: [
-            {answer: 'Please lend me some money'},
-            {answer: 'Borrow me money'},
-            {answer: 'abeg I need cash'},
-            {answer: 'abeg my account', correct: true},
-          ]
-        },
-        {
-          question: "What do y'all think is gonna happen after Mark Zuck. is done building a branch of Fb here in lagos",
-          suggestions: [
-            {answer: "Yahoo boys will increase"},
-            {answer: 'Imposter syndrome x2' , correct: true},
-            {answer: 'None'},
-            {answer: 'yahoo boys go cash out finally'},
-          ]
-        },
-        {
-          question: 'Serious question - Imagine yourself with 10 million naira...',
-          suggestions: [
-            {answer: 'Save it until I have enough to buy 3 ferraris for my child 😂', correct: true},
-            {answer: 'Invest'},
-            {answer: 'Club'},
-            {answer: 'Wake up from your dream'},
-          ]
-        },
-        {
-          question: "Tricky - Who will win this year's BBN",
-          suggestions: [
-            {answer: 'N/A'},
-            {answer: 'N/A'},
-            {answer: 'N/A'},
-            {answer: 'Laycon', correct: true},
-          ]
-        },
-        {
-          question: 'Dj cuppy owns how many ferraris 😂',
-          suggestions: [
-            {answer: '1'},
-            {answer: '2'},
-            {answer: '3', correct: true},
-            {answer: '4'},
-          ]
-        }
-      ],
+      questions: this.$store.state.questions,
       back: '<',
       a: 0,
       b: 1,
