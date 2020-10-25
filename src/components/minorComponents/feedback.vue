@@ -42,6 +42,8 @@ export default {
     justify-content: space-around;
     align-items: center;
     padding: 20px;
+    border-radius: 5px;
+
 }
 .media{
     margin-top: 10px;

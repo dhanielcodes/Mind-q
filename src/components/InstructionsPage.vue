@@ -6,7 +6,7 @@
       <div v-on:click="take =! take, pop = false, time = false, multi = false" v-bind:class="{open: take}" class="takequiz ins"><h3>Take Quiz</h3> <img src="../assets/images/single.svg" alt="" srcset=""></div>
       <div v-on:click="pop =! pop, take = false, time = false, multi = false" v-bind:class="{open: pop}" class="popquiz ins"><h3>Pop Quiz</h3> <img src="../assets/images/pop_quiz.svg" alt="" srcset=""></div>
       <div v-on:click="time =! time, multi = false, pop = false, take = false" v-bind:class="{open: time}" class="time ins"><h3>Timed test</h3> <img src="../assets/images/time.svg" alt="" srcset=""></div>
-      <div v-on:click="multi =! multi, take = false, time = false, pop = false" v-bind:class="{open: multi}" class="multi ins"><h3>Multiplayer</h3> <img src="../assets/images/take_quiz.svg" alt="" srcset=""></div>
+      <div v-on:click="multi =! multi, take = false, time = false, pop = false" v-bind:class="{open: multi}" class="multi ins"><h3>Guess who</h3> <img src="../assets/images/guess.svg" alt="" srcset=""></div>
     </div>
     <feedback></feedback>
   </div>
@@ -41,17 +41,20 @@ span{
   position: relative;
   justify-content: space-between;
   align-items: center;
-  background: var(--secondary)
+  background: var(--secondary);
+  border-radius: 5px;
 }
 .ins img{
   width: 40px
 }
 .popquiz{
   position: relative;
+
 }
 /*--popups--*/
 .takequiz{
   position: relative;
+
 }
 .takequiz::after{
   content: 'Select any category of your choice and enjoy ! 😎. Will be available soon.';

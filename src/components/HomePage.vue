@@ -2,12 +2,12 @@
   <div>
     <preloader />
     <h1 class="toggle">Activity 🤸‍♂️</h1>
-    <div class="main">
-      <div @click="category = true" class="takeQuize"><h1>Take Quiz</h1> <img src="../assets/images/single.svg" alt=""></div>
-      <router-link to="/popquiz" class="popQuiz"><h1>Pop Quiz</h1> <img src="../assets/images/pop_quiz.svg" alt=""></router-link>
-      <router-link to="/timed" class="timed"><h1>Timed test</h1> <img src="../assets/images/time.svg" alt=""></router-link>
-      <router-link to="/guess" class="multi"><h1>Guess who ?</h1> <img src="../assets/images/guess.svg" alt=""></router-link>
-      <router-link to="/instructions" class="instructions"><h1>instructions</h1> <img src="../assets/images/instructions.svg" alt=""></router-link>
+    <div class="main" >
+      <div @click="category = true" class="takeQuize mini"><h1>Take Quiz</h1> <img src="../assets/images/single.svg" alt=""></div>
+      <router-link to="/popquiz" class="popQuiz mini"><h1>Pop Quiz</h1> <img src="../assets/images/pop_quiz.svg" alt=""></router-link>
+      <router-link to="/timed" class="timed mini"><h1>Timed test</h1> <img src="../assets/images/time.svg" alt=""></router-link>
+      <router-link to="/guess" class="multi mini"><h1>Guess who ?</h1> <img src="../assets/images/guess.svg" alt=""></router-link>
+      <router-link to="/instructions" class="instructions mini"><h1>instructions</h1> <img src="../assets/images/instructions.svg" alt=""></router-link>
     </div>
     <div class="overlay" v-if="category">
       <h2>Select option.</h2>
@@ -136,16 +136,12 @@
 
 <script>
 export default {
- data() {
-   return {
-     category: false
-   }
- },
- methods: {
-   toggle(){
-     this.category = true
-   }
- },
+
+  data(){
+    return{
+      category: false
+    }
+  }
 }
 </script>
 
@@ -154,6 +150,9 @@ svg path{
   fill: none;
   opacity: 10%;
 
+}
+.mini{
+  border-radius: 10px;
 }
 .main{
   margin-top: 30px;
